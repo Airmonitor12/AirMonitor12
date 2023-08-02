@@ -7,6 +7,10 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -23,6 +27,28 @@ public class SignIn extends AppCompatActivity {
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
    // CallbackManager callbackManager;
+
+        ActivityResultLauncher<Intent> activityResultLauncher= registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult activityResult) {
+                        int requestCode=activityResult.getResultCode();
+                        Intent data=activityResult.getData();
+                        if (requestCode == RESULT_OK) {
+                            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+                            try {
+                                task.getResult(ApiException.class);
+                                navigateToSecondActivity();
+                            } catch (ApiException e) {
+                                Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+
+                            }
+
+                        }
+
+                    }
+                }
+        );
 
 
     @Override
@@ -88,7 +114,8 @@ public class SignIn extends AppCompatActivity {
             public void onClick(View view) {
                // signIn();
                 Intent signInIntent = gsc.getSignInIntent();
-                startActivityForResult(signInIntent, 1000);
+                //startActivityForResult(signInIntent, 1000);
+                activityResultLauncher.launch(signInIntent);
             }
         });
 
@@ -108,7 +135,7 @@ public class SignIn extends AppCompatActivity {
     }
 
 
-    @Override
+   /* @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1000) {
@@ -123,10 +150,11 @@ public class SignIn extends AppCompatActivity {
 
         }
     }
+   */
 
     private void navigateToSecondActivity() {
         finish();
-        Intent i = new Intent(SignIn.this, Monitor.class);
+        Intent i = new Intent(SignIn.this, Profile.class);
         startActivity(i);
     }
 

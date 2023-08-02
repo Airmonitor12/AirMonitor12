@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Splash"
     tools:ignore="ExtraText"
-    android:background="@color/teal_200">
+    android:background="@color/teal_700">
 
     <ImageView
         android:id="@+id/imageView4"
