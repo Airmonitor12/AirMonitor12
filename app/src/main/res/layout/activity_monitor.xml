@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Monitor">
+
+
+
+    <ImageView
+        android:id="@+id/activity_device"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/teal_200"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        />
+    <TextView
+        android:id="@+id/title1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="50dp"
+        android:text="Air Monitor"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        />
+
+    <ImageView
+        android:id="@+id/user_icon"
+        android:layout_width="50dp"
+        android:layout_height="35dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/user_icon"
+        app:tint="@color/white"/>
+
+    <TextView
+        android:id="@+id/txtClientStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="165dp"
+        android:layout_marginStart="10dp"
+        android:text="Client Status: Waiting for client..."
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/imageView2"/>
+
+
+
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/txtcategory"
+        app:srcCompat="@mipmap/categories_round" />
+    <TextView
+        android:id="@+id/txtcategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Categories"
+        android:textSize="20sp"
+        android:textStyle="bold"
+
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/box1"/>
+
+
+    <TextView
+        android:id="@+id/box1"
+        android:layout_width="103dp"
+        android:layout_height="73dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:padding="10sp"
+        android:background="@drawable/co2_rect"
+        android:text="Co2 550ppm"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="normal" />
+
+
+    <TextView
+        android:id="@+id/box2"
+        android:layout_width="103dp"
+        android:layout_height="73dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="70dp"
+        android:gravity="center"
+        android:background="@drawable/pm_rect"
+        android:text="PM 2.5 65ug/m3"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/box3"
+        android:layout_width="103dp"
+        android:layout_height="73dp"
+        android:layout_below="@id/box1"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:background="@drawable/humidity_rect"
+        android:text="Humidity"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/box4"
+        android:layout_width="103dp"
+        android:layout_height="73dp"
+        android:layout_below="@id/box2"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="70dp"
+        android:gravity="center"
+        android:background="@drawable/temp_rect"
+        android:text="Temperature 27oC"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="normal" />
+    <TextView
+        android:id="@+id/box5"
+        android:layout_width="103dp"
+        android:layout_height="73dp"
+        android:layout_below="@id/box4"
+        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:background="@drawable/voc_rect"
+        android:text="VOC"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="normal" />
+    <TextView
+        android:id="@+id/box6"
+        android:layout_width="103dp"
+        android:layout_height="73dp"
+        android:layout_below="@id/box4"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="70dp"
+        android:gravity="center"
+        android:background="@drawable/hcho_rect"
+        android:text="HCHO"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="normal" />
+  <!--  <Button
+        android:id="@+id/btnSendData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:textSize="18sp"
+        android:onClick="startRepeating"
+        android:text="start repeating" />
+-->
+
+
+<requestFocus/>
+
+
+
+</RelativeLayout>
