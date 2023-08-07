@@ -17,10 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AirMonitor"
         tools:targetApi="31">
-        <activity
-            android:name=".Monitor"
-            android:exported="false" />
 
+
+        <!-- Splash activity for starting the app-->
         <activity
             android:name=".Splash"
             android:exported="true"
@@ -30,19 +29,53 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
             </activity>
-      <!--  <meta-data
+        <meta-data
             android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_application_id" />
+            android:value="@string/facebook_app_id" />
         <meta-data
             android:name="com.facebook.sdk.ClientToken"
             android:value="@string/facebook_client_token" />
-            -->
+        <!-- Added for facebook login -->
+        <activity android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            />
+
+        <!-- Added for opening facebook in a custom tab -->
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+
+        <!-- SignIn activity -->
         <activity
             android:name=".SignIn"
             android:exported="false" />
+
+        <!-- Monitor activity to store all the data received from device -->
+        <activity
+            android:name=".Monitor"
+            android:exported="false" />
+
+        <!-- Profile activity-->
         <activity android:name=".Profile"
             android:parentActivityName=".SignIn"/>
+
+        <!-- Home activity creation -->
+        <activity
+            android:name=".Home"
+            android:exported="false" />
     </application>
+    <!-- Written for testing custom tab for facebook login -->
+    <queries>
+        <package android:name="com.facebook.katana" />
+    </queries>
 
 
 </manifest>
