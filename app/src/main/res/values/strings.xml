@@ -2,5 +2,8 @@
     <string name="app_name">AirMonitor</string>
     <string name="Name">Name</string>
     <string name="Email">Email</string>
-    <string name="server_client_id">704741300057-ga88ui117njs546i8e7trs38uc6hbg6j.apps.googleusercontent.com</string>
+    <string name="facebook_app_id">1303762940243251</string>
+    <string name="facebook_client_token">a601601233418e44331e8618003d15a5</string>
+    <string name="fb_login_protocol_scheme">fb1303762940243251</string>
 </resources>
+

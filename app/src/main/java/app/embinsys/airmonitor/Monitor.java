@@ -20,7 +20,7 @@ import java.net.Socket;
 public class Monitor extends AppCompatActivity {
     private Handler mHandler = new Handler(Looper.getMainLooper());
 
-    private ServerSocket serverSocket;
+    public static ServerSocket serverSocket;
     private Socket socket;
     TextView box1, box2, box3, box4, box5, box6;
     float valCO2 = 0f;
@@ -99,7 +99,6 @@ public class Monitor extends AppCompatActivity {
                     inputStream = new DataInputStream(socket.getInputStream());
                     outputStream = new DataOutputStream(socket.getOutputStream());
                     new Thread(new SocketReceive()).start();
-
             } catch (Exception e) {
                 e.printStackTrace();
                 runOnUiThread(() -> txtClientStatus.setText("Client Status: Client failed to connect"));
@@ -132,11 +131,7 @@ public class Monitor extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
        //To remove the title bar
-        try {
-            this.getSupportActionBar().hide();
-
-        }
-        catch(NullPointerException e){}
+        getSupportActionBar().hide();
 
         setContentView(R.layout.activity_monitor);
 
@@ -146,6 +141,8 @@ public class Monitor extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(Monitor.this, Profile.class);
                 startActivity(i);
+
+
             }
         });
 
