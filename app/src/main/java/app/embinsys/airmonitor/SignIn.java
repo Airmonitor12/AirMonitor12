@@ -139,7 +139,7 @@ public class SignIn extends AppCompatActivity {
     private void signIn()
     {
         finish();
-        Intent i = new Intent(SignIn.this, Home.class);
+        Intent i = new Intent(SignIn.this, Monitor.class);
         startActivity(i);
     }
 

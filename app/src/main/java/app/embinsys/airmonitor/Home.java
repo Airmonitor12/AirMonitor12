@@ -16,6 +16,7 @@ public class Home extends AppCompatActivity
         protected void onCreate(Bundle savedInstanceState)
         {
                 super.onCreate(savedInstanceState);
+                getSupportActionBar().hide();
                 setContentView(R.layout.activity_home);
                 home_icon=findViewById(R.id.home_icon);
 
@@ -27,5 +28,7 @@ public class Home extends AppCompatActivity
                                 finish();
                         }
                 });
+
+
         }
 }
